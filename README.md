@@ -1,4 +1,4 @@
-# package-fileupload
+# package-Fileupload
 A package for convenient way to upload files to the different storages
 
 [![Latest Version](https://img.shields.io/github/release/ravikoriya/package-fileupload?style=flat-square)](https://github.com/ravikoriya/package-fileupload/releases)
@@ -27,20 +27,10 @@ Xpert\upload\UploadServiceProvider::class
 php artisan vendor:publish
 ```
 
-## Configuration
-
-Go to the file
-```
-config/file_uploads.php
-```
-There you have an ability to set:
-1. default storage to upload file (default is: local)
-2. default image quality (default is: 100)
-3. default folder to put your uploads (default is: public/user-uploads)
-
 ## Usage Controller
 #### To upload file:
 ```php
+use FileUpload;
 public function upload(Request $request)
 {   
     // This will upload your file to the upload package composer
@@ -49,3 +39,38 @@ public function upload(Request $request)
 }
 ```
 
+# package-FileuploadResize
+A package for convenient way to upload files to Resize original file and thumbnail
+
+## Installation
+1. Run the command below to add this package:  
+```
+composer require intervention/image
+```
+
+2. Open your `config/app.php` and add the following to the providers array:
+```php
+Intervention\Image\ImageServiceProvider::class
+```
+
+3. Open your `config/app.php` and add the following to the aliases array:
+```php
+'ImageResize' => Intervention\Image\Facades\Image::class
+```
+
+4. Run the command below to publish the package:  
+```
+php artisan vendor:publish
+```
+
+## Usage Controller
+#### To upload file:
+```php
+use FileUpload;
+public function uploadWithResize(Request $request)
+{   
+    // This will upload your file to the resize upload.
+    FileUpload::uploadResize($request,'uploads/original','uploads/thumbnail','image');
+
+}
+```
