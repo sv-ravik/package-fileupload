@@ -7,8 +7,3 @@
 
 File upload package used for uploading image and resize image.
 
-## Installation
-
-Installation uses the [npm](http://npmjs.org/) package manager. Just type the following command after installing npm.
-
-    npm install pdfkit
