@@ -1,0 +1,21 @@
+{
+    "name": "xpert/upload",
+    "description": "this package used for file uploading",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ravi",
+            "email": "ravikj@xpertdeveloper.in"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "intervention/image": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+                   "Xpert\\upload\\": "src/"
+               }
+        }
+}
